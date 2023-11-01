@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextDivider from "../component/textdivider";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../../utils/init-firebase-";
+import { auth } from "../../../utils/init-firebase";
 
 const ForgotPassword = () =>{
     const [email,setEmail] = useState("")

@@ -7,7 +7,7 @@ import profile from "../../img/profile.png";
 import google from "../../img/google.png";
 import TextDivider from "../component/textdivider";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth } from "../../../utils/init-firebase-";
+import { auth } from "../../../utils/init-firebase";
 
 
 const Login = () =>{
