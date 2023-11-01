@@ -1,0 +1,66 @@
+.navbar {
+    background-color: rgba(rgba(255, 0, 0, 0.5));
+    width: 100%; 
+    z-index: 99; 
+    position: absolute;  
+}
+#pedo{
+    z-index: 999; 
+
+}
+.otherNav{
+    display: block;
+    z-index: 0; 
+    position: relative;
+}
+.otherNav a {
+    color: black !important;
+}
+#navbarHome{
+    height: 90px;
+}
+#navbarHome a {
+    color:white
+}
+#navbarHome:hover  .nav-link{
+    color: black;
+}
+#navbarHome:hover {
+    background-color: white;
+}
+.nav-item {
+    margin-right: 5px;
+} 
+.nav-link {
+    position: relative;
+}
+.dropdown-item {
+    color: black !important
+}
+  
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: black;
+    transition: width 0.3s ease; 
+  }
+  
+.nav-link:hover::before {
+    width: 100%;
+  }
+
+@media (max-width: 470px){
+    .navbar-toggler{
+        border: none;
+        color: white;
+    }
+    .nabvar{
+        background-color: rgba(rgba(255, 0, 0, 0.5));
+
+    }
+    
+}
