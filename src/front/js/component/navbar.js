@@ -6,8 +6,9 @@ import {GiHamburgerMenu } from 'react-icons/gi';
 import Dropdown from "./dropdown";
 import Swal from 'sweetalert2';
 import { Context } from "../store/appContext";
-import { FaCartShopping } from 'react-icons/fa';
 import { BsFillPersonFill } from 'react-icons/bs';
+import { BsCartFill } from 'react-icons/bs';
+
 
 
 
@@ -77,21 +78,20 @@ export const Navbar = () => {
 						<GiHamburgerMenu className="reactIcon" size="30px" />
 					</span>
 				</span>
-				<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill size={25} /></a>
-				<FaCartShopping size={25} />
+				
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 					<li className="nav-item">
 						<a className="nav-link active" aria-current="page" onClick={()=> navigate("/")} >Home</a>
 					</li>
+				
+					<Dropdown name ={"Dormitorio"} item1="Canapes"  link="/canapes" link2="/colchones" link3="/cabeceros" item2="Colchones" item3="Cabezeros" />
+					<Dropdown name ={"Salon"} item1="Sofa" item2="Armario" item3="Mesas"  link="/sofas" link2="/armarios" link3="/mesas" />
 					{tokenn || (userData && userData.token) ? (
 						<>
 						<li className="nav-item">
-							<a className="nav-link" href="/" onClick={logOut}>Log out</a>
+							<a className="nav-link" href="/" onClick={logOut}>Salir</a>
 						</li>
-                            <button type="button" className="btn border-0 p-0 m-0" onClick={()=>navigate("/carrito")}>
-                            	Carrito <span>{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
-                            </button>
 						</>
 					):(
 						<>
@@ -104,8 +104,11 @@ export const Navbar = () => {
 						</>
 					)}
 					
-					<Dropdown name ={"Dormitorio"} item1="Canapes"  link="/canapes" link2="/colchones" link3="/cabeceros" item2="Colchones" item3="Cabezeros" />
-					<Dropdown name ={"Salon"} item1="Sofa" item2="Armario" item3="Mesas"  link="/sofas" link2="/armarios" link3="/mesas" />
+					<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
+					<div className="shopping-cart-container" onClick={()=>navigate("/carrito")}>
+						<span className="favorites-counter">{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
+						<BsCartFill className="cart-icon mt-2" size={22} />
+					</div>
 				</ul>
 					<form className="d-flex" onSubmit={handleSearch}>
 						<input

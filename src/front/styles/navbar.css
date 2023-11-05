@@ -1,3 +1,38 @@
 #navbarHome a {
-    color:black
+  font-size: 20px;
+  color: black !important;
 }
+.favorites-counter {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    background-color: rgb(255, 162, 0);
+    color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .shopping-cart-container {
+    position: relative;
+    display: inline-block;
+  }  
+
+  @media (max-width: 470px){
+    .favorites-counter {
+      width: 20px;
+      height: 20px;
+      font-size: 15px;
+      top: 0px;
+      right: initial;
+      left: 17px;
+    }
+    .cart-icon{
+      margin-top: 15px !important;
+    }
+    .cuenta{
+      margin-left: 0 !important;
+    }
+  }

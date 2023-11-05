@@ -167,9 +167,9 @@ export const Home = () => {
 				</div>
 			</div>
 	
-			<div className="banner">
+			{/* <div className="banner">
 					<i className="fa-brands fa-whatsapp  fa-rotate-270 fa-3x" style={{color: "#ffffff"}} onClick={handleClick}></i>
-			</div>
+			</div> */}
 		</div>
 	);
 };
