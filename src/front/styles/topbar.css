@@ -9,28 +9,21 @@
     font-family: Neuzeit Office, sans-serif;
     font-size: 14px;
 }
-.fa-brands{
-    color: white;
+.iconTopBar{
+    color: white !important;
     font-size: 24px !important;
 }
-@keyframes moveIcons {
-    0% {
-        transform: translateX(-5%);
-    }
-    100% {
-        transform: translateX(55%);
-    }
+marquee{
+    color: white;
 }
-
-.iconsAnuncio {
-    animation: moveIcons 10s linear infinite;
-}
-
 
 @media (max-width: 470px){
     #iconsHome{
         justify-content: center !important;
         margin-top: 10px;
         padding-bottom: 10px;
+    }
+    #announceBoard{
+        height: 85px;
     }
 }

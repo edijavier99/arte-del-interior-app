@@ -17,5 +17,10 @@
     color: black;
 }
 .fa-brands{
-    color: black !important;
+    color: black ;
+}
+@media (max-width: 470px){
+    .footer{
+        margin-top: 0px !important;
+    }
 }

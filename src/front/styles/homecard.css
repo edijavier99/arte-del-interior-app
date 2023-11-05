@@ -2,9 +2,9 @@
     border: none;
 }
 .card{
-    box-shadow: 0px 3px 15px -7px rgba(0, 0, 0, 0.5);
-
+    box-shadow: 0px 3px 15px -7px rgba(0, 0, 0, 0.5) !important;
 }
+
 #titleCard {
     position: relative;
     transform: translateY(-95%);
@@ -29,6 +29,7 @@
 #singleItemCardImage img{
     height: 100%;
     width: 100%;
+    overflow: hidden;
     object-fit: cover;
 }
 .btnBoard {
@@ -62,3 +63,12 @@
 /* #singleItemCard p , #singleItemCard h3{
     font-family: 'Playfair Display', serif;;
 } */
+
+
+@media (max-width: 470px){
+    #titleCard {
+        height: 45px;
+        width: 160px;
+    }
+    
+}

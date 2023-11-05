@@ -81,7 +81,7 @@ export const Navbar = () => {
 							{result.name}
 						</a>
 					</span>
-			);
+				);
 			})
 	}
 

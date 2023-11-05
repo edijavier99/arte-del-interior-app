@@ -18,10 +18,14 @@
     align-items: center;
     justify-content: center;
   }
-  .shopping-cart-container {
+.shopping-cart-container {
     position: relative;
     display: inline-block;
-  }  
+}  
+.busquedaBoard{
+  
+}
+
 .itemBusqueda{
   font-size: 17px !important;
 }

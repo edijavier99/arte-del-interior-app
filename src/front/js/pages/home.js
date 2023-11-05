@@ -101,6 +101,7 @@ export const Home = () => {
 	return (
 		<div className="container-fluid m-0 p-0">
 			<CarouselHome/>
+
 			{/* <div className="row d-flex justify-content-center">
 				<div className="col-3">
 					<div className="card" style={{width:350}}>
@@ -114,31 +115,32 @@ export const Home = () => {
 					</div>
 				</div>
 			</div> */}
-			<div className="row mt-5">
-				<div className="col-md-4 text-center features">
-					<h3>Envios gratis</h3>
-					<p>En compras superiores a 150€</p>
-				</div>
-				<div className="col-md-4  text-center features">
-					<h3>Atención 24/7</h3>
-					<p>Nuestro equipo de atención al cliente está disponible las 24 horas del día</p>
-				</div>
-				<div className="col-md-4  text-center ">
-					<h3>Calidad garantizada</h3>
-					<p>Diseñada para superar tus expectativas y garantizar tu total satisfacción en cada compra</p>
-				</div>
-			</div>
+			<section className="mt-5 d-flex flex-row p-4 featuresBoard">
+					<div className="col-md-4 text-center features">
+						<h3>Envios gratis</h3>
+						<p>En compras superiores a 150€</p>
+					</div>
+					<div className="col-md-4  text-center features">
+						<h3>Atención 24/7</h3>
+						<p>Nuestro equipo de atención al cliente está disponible las 24 horas del día</p>
+					</div>
+					<div className="col-md-4  text-center ">
+						<h3>Calidad garantizada</h3>
+						<p>Diseñada para superar tus expectativas y garantizar tu total satisfacción en cada compra</p>
+					</div>
+			</section>
 
 			{/* <div className="container-fluid mt-4">
 					{showItems()}			
 			</div> */}
+
 			<div className="container-fluid">
 					<DormitorioCard title="Dormitorio"/>
 			</div>
 			<div className="container-fluid">
 					<SalonCard title="Salon"/>
 			</div>
-			<div className="row mt-5">
+			<section className="d-flex flex-row diseñoExplainBoard">
 				<div className="col-md-6 d-flex flex-column align-items-left justify-content-center p-5" style={{height:600, backgroundColor:"rgb(247, 243, 234)"}}>
 					<h2 className="text-center ">Diseño de Interiores para tu Hogar</h2>
 					<h6 className="text-center mb-5">Tu Hogar, Tu Estilo, Nuestro Compromiso</h6>
@@ -146,30 +148,30 @@ export const Home = () => {
 					<p>Explora nuestra colección exclusiva de muebles para dormitorios y salones. Transforma tu espacio en un oasis de comodidad y estilo con muebles diseñados especialmente para ti. Descubre la elegancia y funcionalidad en cada rincón de tu hogar.</p>
 					<button className="btn btn-dark" style={{borderRadius:0}}>Comprar</button>
 				</div>
-				<div className="col-md-6 mt-3" id="canapeImage">
-					<div className="row">
-						<div className="col-md-4 image">
-							<img src="https://cdn.pixabay.com/photo/2018/01/23/06/58/modern-minimalist-lounge-3100785_1280.jpg"  style={{height:280, width:300}}/>
+				<div className="col-md-6 m-0 p-0">
+					<div className="row m-0 p-0">
+						<span className="col-md-6 primaraImagen">
+							<img src="https://cdn.pixabay.com/photo/2018/01/23/06/58/modern-minimalist-lounge-3100785_1280.jpg" />
+						</span>
+						<span className="col-md-6 segundaImagen">
+							<img src="https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839184_1280.jpg"  />
+						</span>
 						</div>
-						<div className="col-md-4 offset-md-3 mt-5 image">
-							<img src="https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839184_1280.jpg" style={{height:300, width:300}} />
-						</div>
-					</div>
-					<div className="row"> 
-						<div className="col-md-4 image" id="terceraImg">
-						<img src="https://cdn.pixabay.com/photo/2020/11/24/11/36/bedroom-5772286_1280.jpg" style={{height:300, width:300}}/>
+						<div className="row m-0 p-0">
+							<span className="col-md-6 terceraImagen">
+						<img src="https://cdn.pixabay.com/photo/2020/11/24/11/36/bedroom-5772286_1280.jpg" />
 
+						</span>
+						<span className="col-md-6 cuartaImagen">
+							<img src="https://cdn.pixabay.com/photo/2020/02/01/06/12/living-room-4809587_1280.jpg" />
+						</span>
 						</div>
-						<div className="col-md-4" id="middleImage">
-							<img src="https://cdn.pixabay.com/photo/2020/02/01/06/12/living-room-4809587_1280.jpg" style={{height:350, width:300}}/>
-						</div>
-					</div>
 				</div>
-			</div>
+			</section>
 	
-			{/* <div className="banner">
-					<i className="fa-brands fa-whatsapp  fa-rotate-270 fa-3x" style={{color: "#ffffff"}} onClick={handleClick}></i>
-			</div> */}
+			<div className="banner">
+					<i className="fa-brands fa-whatsapp  fa-3x"onClick={handleClick}></i>
+			</div>
 		</div>
 	);
 };
