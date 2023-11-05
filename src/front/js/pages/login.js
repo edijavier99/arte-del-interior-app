@@ -1,9 +1,9 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import "../../styles/login.css";
 import { useNavigate } from "react-router-dom";
 import { Context} from "../store/appContext";
 import Swal from 'sweetalert2';
-import profile from "../../img/profile.png";
+import profile from "../../img/profile.png"
 import google from "../../img/google.png";
 import TextDivider from "../component/textdivider";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
@@ -21,14 +21,22 @@ const Login = () =>{
     const [surname,setSurname] = useState("")
     const [password, setPassword] = useState("")
     const [location,setLocation] = useState("")
-    
+    const locationn = "null"
+    const {store,actions} = useContext(Context)
+    const contraseñaParaFirebase = "123456789"
+    const [infoGoogle,setInfoGoogle] = useState("")
 
     const handleLoginClick = () => {
-        setLoginEmail('');
-        setLoginPassword('');
-        setShowLogin(true);
+        try {
+            setLoginEmail('');
+            setLoginPassword('');
+            setShowLogin(true);           
+          } catch (error) {
+            console.error("Error al registrar el usuario en Firebase:", error);
+          }
+      
     };
-
+   
     const handleCreateClick = () => {
         setName('');
         setSurname('');
@@ -51,39 +59,9 @@ const Login = () =>{
           }
         };
 
-
-        const create_user = () =>{
-            if(email === '') {
-                alert(' Email is empty!')
-            } else if(password === ''){
-                alert('Password is empty!')
-            } else if ( name === " "){
-                alert("Name is empty")
-            } else if ( surname === " "){
-                alert("Surname is empty")
-            }else if ( location === " "){
-                alert("Location is empty")
-            } else {
-                fetch(process.env.BACKEND_URL + 'api/create-user', { 
-                method: "POST", 
-                headers: { 
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({name,password,surname,email: email.toLowerCase(),location,image}) 
-            })
-            .then((res) => res.json())
-            .then((result) => {  
-                console.log(result);
-            })
-            .catch((err) => {
-            console.log(err);
-            })
-            }
-        }
-    
     const registerOnFirebase = async () => {
             try {
-              await createUserWithEmailAndPassword(auth, email, password);
+              await createUserWithEmailAndPassword(auth, email, password);    
             } catch (error) {
               console.error("Error al registrar el usuario en Firebase:", error);
             }
@@ -94,45 +72,6 @@ const Login = () =>{
             return signInWithPopup(auth, googleProvider);
     };
         
-    const user_login = () =>{
-	    if(loginEmail ==='') {
-			alert(' Email is Empty!')
-		} else if(loginPassword === ''){
-			alert('Password is empty!')
-		} else {
-			fetch( process.env.BACKEND_URL + `api/login`, { 
-			method: "POST",
-			headers: { 
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({loginEmail: loginEmail.toLowerCase(),loginPassword }) 
-		})
-		.then((res) => res.json())
-		.then((result) => {
-            if(result.msg){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: result.msg,
-                });
-            }else{
-                Swal.fire({
-                    icon: 'success',
-                    text: result.loginOK,
-                });
-                localStorage.setItem('token', result.token)
-                localStorage.setItem('userId', result.user_id);
-                localStorage.setItem('username', result.username);
-                localStorage.setItem('gmail', result.email);
-
-                navigate('/');
-            }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        };
-    }
     return(
             <div className="general-container">
                 <div className="row border col-8" id="loginCard">
@@ -182,14 +121,29 @@ const Login = () =>{
                                 </div>
                                 <button type="submit" 
                                         className="btn btn-warning mt-4"
-                                        onClick={user_login} 
+                                        onClick={()=>{
+                                            actions.userLogin(loginEmail,loginPassword)
+                                            navigate("/")
+                                        }} 
+                                        
                                >Login</button>
                                <TextDivider/>
 
                                < a href="#" className="btn bg-light mt-3" onClick={()=>{
                                 signInWithGoogle()
                                 .then(res=>{
+                                    setInfoGoogle(res)
+                                    const { localId, firstName, email,lastName,photoUrl } = res._tokenResponse;
+                                    const dataToStore = {
+                                      token: localId,
+                                      username: firstName,
+                                      email: email,
+                                      surname: lastName,
+                                      image: photoUrl
+                                    };
+                                    localStorage.setItem('userData', JSON.stringify(dataToStore));
                                     console.log(res);
+                                    actions.createUser(res._tokenResponse.displayName,contraseñaParaFirebase,res._tokenResponse.fullName,res._tokenResponse.email,locationn, res._tokenResponse.photoUrl)
                                 })
                                }}> 
                                <img src={google} style={{height:40, width:40}} alt="google-image"/>Log in with Google</a>
@@ -269,6 +223,7 @@ const Login = () =>{
                                                 id="password" 
                                                 className="p-3 col-10 register-input"  
                                                 placeholder="Password" 
+                                                minLength={7}
                                                 onChange={(e)=>{setPassword(e.target.value)}}
                                                 name="password"
                                                 /><br/><br/>
@@ -279,9 +234,11 @@ const Login = () =>{
                                                 type="submit" 
                                                 className="btn btn-warning mb-3"
                                                 onClick={()=>{
-                                                    create_user()
+                                                    actions.createUser(name,password,surname,email,location,image)
                                                     registerOnFirebase()
-                                                    handleLoginClick()
+                                                    if(store.usuarioCreado){
+                                                        handleLoginClick()
+                                                    }  
                                                 }}
                                                 >SUBMIT</button> 
                                             <i class="fa-solid fa-arrow-right" onClick={handleLoginClick}></i>

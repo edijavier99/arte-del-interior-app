@@ -6,17 +6,21 @@ import {GiHamburgerMenu } from 'react-icons/gi';
 import Dropdown from "./dropdown";
 import Swal from 'sweetalert2';
 import { Context } from "../store/appContext";
+import { FaCartShopping } from 'react-icons/fa';
+import { BsFillPersonFill } from 'react-icons/bs';
 
 
 
 export const Navbar = () => {
 
 	const [searchQuery, setSearchQuery] = useState('');
-	const token = localStorage.getItem("token")
+	const tokenn = localStorage.getItem("token")
 	const {store,actions} = useContext(Context)
 	const [searchResults, setSearchResults] = useState([]);
 	const navigate = useNavigate()
 	const isHome = window.location.pathname === '/';
+	const userData = JSON.parse(localStorage.getItem('userData'));
+
 
 
 	const handleSearch = (e) => {
@@ -32,6 +36,13 @@ export const Navbar = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('userId')
 		localStorage.removeItem('username')
+		localStorage.removeItem("image")
+		localStorage.removeItem("gmail")
+
+		if(userData){
+			localStorage.removeItem('userData')
+
+		}
 		window.location.reload();
 		Swal.fire({
 		icon: 'success',
@@ -66,21 +77,20 @@ export const Navbar = () => {
 						<GiHamburgerMenu className="reactIcon" size="30px" />
 					</span>
 				</span>
+				<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill size={25} /></a>
+				<FaCartShopping size={25} />
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 					<li className="nav-item">
 						<a className="nav-link active" aria-current="page" onClick={()=> navigate("/")} >Home</a>
 					</li>
-					{token ? (
+					{tokenn || (userData && userData.token) ? (
 						<>
-						<li className="nav-item">
-						<a className="nav-link" onClick={()=> navigate("/userpage")}>Mi cuenta</a>
-						</li>
 						<li className="nav-item">
 							<a className="nav-link" href="/" onClick={logOut}>Log out</a>
 						</li>
-                            <button type="button" className="btn border-0" onClick={()=>navigate("/carrito")}>
-                            	Carrito <span className="p-1 text-center text-warning">{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
+                            <button type="button" className="btn border-0 p-0 m-0" onClick={()=>navigate("/carrito")}>
+                            	Carrito <span>{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
                             </button>
 						</>
 					):(
@@ -110,23 +120,23 @@ export const Navbar = () => {
 							Buscar
 						</button>
 					</form>
-					{searchResults.length > 0 && (
-        <div>
-         
+			
+				</div>
+				{searchResults.length > 0 && (
+        <div className="d-flex bg-danger">
           {searchResults.map((result, index) => {
 				return (
-					// <li key={index}>
-					// <a className="dropdown-item" href="#">
-					// 	{result.name}
-					// </a>
-					// </li>
-					alert(result.name)
+					<div id="mostrarBusqueda" className="d-flex flex-column">
+						<li key={index}>
+							<a className="dropdown-item" href="#">
+								{result.name}
+							</a>
+						</li>
+					</div>
 				);
 				})}
-    
         </div>
       )}
-				</div>
 			</div>
 		</nav>
 	);

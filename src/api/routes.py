@@ -11,9 +11,7 @@ from flask_jwt_extended import (
     JWTManager, jwt_required, create_access_token
 )
 
-
 api = Blueprint('api', __name__)
-
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -40,13 +38,18 @@ def create_user():
                 "msg": f"{field.capitalize()} should be in request"
             }
             return jsonify(response_body), 400
-        
-    password_hash = bcrypt.hashpw(data["password"].encode('utf-8'), bcrypt.gensalt())
-    password_hex = password_hash.hex()
-    new_user= User(email = data["email"], name=data["name"], surname=data["surname"], password=password_hex ,location=data["location"], image=data["image"])
-    db.session.add(new_user)   
-    db.session.commit()
-    return jsonify({"msg": "user has been added"}),200
+    if len(data["password"]) < 7:
+        response_body = {
+            "err" : "Password should be al least 7 characters"
+        }
+        return jsonify(response_body),400
+    else:
+        password_hash = bcrypt.hashpw(data["password"].encode('utf-8'), bcrypt.gensalt())
+        password_hex = password_hash.hex()
+        new_user= User(email = data["email"], name=data["name"], surname=data["surname"], password=password_hex ,location=data["location"], image=data["image"])
+        db.session.add(new_user)   
+        db.session.commit()
+        return jsonify({"msg": "User has been added"}),200
 
 
 @api.route('/login', methods=['POST'])
@@ -75,7 +78,7 @@ def login():
         logged = "Successfully logged"
         access_token = create_access_token(identity=user.id)
 
-        return jsonify({"loginOK": logged, "token": access_token, "user_id": user.id, "username": user.name, "email": user.email}),200
+        return jsonify({"loginOK": logged, "token": access_token, "user_id": user.id, "username": user.name, "image" : user.image, "email": user.email}),200
     else:
         response_body = {
             "msg": "Invalid password"
@@ -167,6 +170,11 @@ def get_single_user(id):
     user = User.query.get(id)
     return jsonify(user.serialize()), 200
 
+@api.route('/users',methods=['GET'])
+def get_all_users():
+    all_users = User.query.all()
+    all_users= list(map(lambda x: x.serialize(),all_users))
+    return jsonify(all_users),200
 
 @api.route('/search',methods=["GET"])
 def handle_search():

@@ -7,6 +7,10 @@ const Userpage = () =>{
     const [openPanel, setOpenPanel] = useState(null);
     const name = localStorage.getItem('username')
     const gmail = localStorage.getItem('gmail')
+    const image = localStorage.getItem('image')
+
+    const userData = JSON.parse(localStorage.getItem('userData'));
+
 
     const togglePanel = (panel) => {
         if (openPanel === panel) {
@@ -28,11 +32,11 @@ const Userpage = () =>{
             </div>
             <div className="row">
                 <div className="col-md-5" id="user-image">
-                    <img src="https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843_1280.jpg" alt="user-image" />
+                    <img src={image || userData.image} alt="user-image" />
                 </div>
                 <div id="userInfo" className="col-md-8">
                         <div className="d-flex flex-row justify-content-between">
-                            <h1>{name}</h1>
+                            <h1>{name || userData.username}</h1>
                             <div className="d-flex flex-column">
                                 <button className="btn bg-light"> <i class="fa-solid fa-circle-check" style={{color: "#43af41"}}></i> Verified</button>
                                 <div className="d-flex flex-row mt-2">

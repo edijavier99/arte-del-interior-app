@@ -25,7 +25,7 @@ class User(db.Model):
     name = db.Column(db.String(40), nullable=False)
     surname = db.Column(db.String(40), nullable=False)
     image = db.Column(db.String(300), nullable=False)
-    location = db.Column(db.String(40), nullable=False)
+    location = db.Column(db.String(40), nullable=True)
     carrito= db.Column(db.ARRAY(db.String(400)))
 
 
