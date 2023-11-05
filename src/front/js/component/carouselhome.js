@@ -23,7 +23,7 @@ const CarouselHome = () =>{
             <h3>Compra.</h3>
             <h4>Disfruta.</h4>
           </div>
-          <p id="description1"> Comodidad y satisfacción <br/> garantizadas."</p>
+          <p id="description1"> Encuentra la esencia del <br/> hogar en cada pieza.</p>
         </div>
         <button className=" btnComprar"  onClick={()=>navigate("/sofas")}>Comprar</button>
       </div>
@@ -33,11 +33,11 @@ const CarouselHome = () =>{
       <div class="carousel-caption">
         <div className="d-flex flex-row justify-content-around  h-50" id="slogan">
           <div className="smallSlogan">
-            <h2>Descubre.</h2>
-            <h3>Compra.</h3>
-            <h4>Disfruta.</h4>
+            <h2>Elegancia.</h2>
+            <h3>Calidad.</h3>
+            <h4>Estilo.</h4>
           </div>
-          <p id="description1"> Comodidad y satisfacción <br/> garantizadas."</p>
+          <p id="description1"> Transformando espacios, <br/> inspirando vidas.</p>
         </div>
         <button className="btnComprar" onClick={()=>navigate("/canapes")}>Comprar</button>
       </div>
@@ -47,11 +47,11 @@ const CarouselHome = () =>{
       <div class="carousel-caption">
         <div className="d-flex flex-row justify-content-around  h-50" id="slogan">
           <div className="smallSlogan">
-            <h2>Descubre.</h2>
-            <h3>Compra.</h3>
-            <h4>Disfruta.</h4>
+            <h2>Comodidad.</h2>
+            <h3>Espacio.</h3>
+            <h4>Diseño.</h4>
           </div>
-          <p id="description1"> Comodidad y satisfacción <br/> garantizadas."</p>
+          <p id="description1"> Diseños que fusionan <br/>la comodidad y el espacio.</p>
         </div>
         <button className=" btnComprar" onClick={()=>navigate("/colchones")}>Comprar</button>
       </div>

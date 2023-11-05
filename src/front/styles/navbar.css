@@ -2,6 +2,9 @@
   font-size: 20px;
   color: black !important;
 }
+#navbarHome{
+  height: 70px;
+}
 .favorites-counter {
     position: absolute;
     top: -5px;
@@ -19,6 +22,9 @@
     position: relative;
     display: inline-block;
   }  
+.itemBusqueda{
+  font-size: 17px !important;
+}
 
   @media (max-width: 470px){
     .favorites-counter {
@@ -34,5 +40,8 @@
     }
     .cuenta{
       margin-left: 0 !important;
+    }
+    #navbarHome{
+      height:auto
     }
   }

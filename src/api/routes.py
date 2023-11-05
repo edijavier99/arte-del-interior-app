@@ -176,10 +176,13 @@ def get_all_users():
     all_users= list(map(lambda x: x.serialize(),all_users))
     return jsonify(all_users),200
 
-@api.route('/search',methods=["GET"])
+@api.route('/search', methods=["GET"])
 def handle_search():
-    search_query = request.args.get('query') 
-    results = Item.query.filter(Item.title.like(f'%{search_query}%')).all()
+    search_query = request.args.get('query')
+    if search_query:
+        results = Item.query.filter(Item.title.ilike(f'%{search_query}%')).all()
+    else:
+        results = []
 
     serialized_results = [{'id': item.id, 'name': item.title} for item in results]
 

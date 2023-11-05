@@ -26,8 +26,12 @@ export const Navbar = () => {
 
 	const handleSearch = (e) => {
 	  e.preventDefault();
-	  realizarBusqueda(searchQuery);
 	};
+
+	const handleSearchOnChange = (e) => {
+		setSearchQuery(e.target.value);
+		realizarBusqueda(e.target.value);
+	  };
 
 	useEffect(()=>{
         actions.getUserCarrito(localStorage.getItem("userId"))
@@ -67,7 +71,19 @@ export const Navbar = () => {
 	  		} catch (error) {
 		  console.error('Error al realizar la búsqueda:', error);
 		}
-	  };
+	};
+
+	const mostrarBusqueda = () =>{
+		return searchResults.map((result, index) => {
+			return (
+					<span key={index}>
+						<a className="dropdown-item itemBusqueda" href={`/single-item/${result.id}`}>
+							{result.name}
+						</a>
+					</span>
+			);
+			})
+	}
 
 	return (
 		<nav className={`navbar navbar-expand-lg ${isHome ? 'navbar' : 'otherNav'}`} >
@@ -92,19 +108,19 @@ export const Navbar = () => {
 						<li className="nav-item">
 							<a className="nav-link" href="/" onClick={logOut}>Salir</a>
 						</li>
+						<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
+
 						</>
+
 					):(
 						<>
 						<li className="nav-item">
 							<a className="nav-link" href="/login">Login</a>
 						</li>
-						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="/login">Mi cesta</a>
-						</li>
 						</>
 					)}
 					
-					<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
+					<a className="nav-item" onClick={()=> navigate("/login")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
 					<div className="shopping-cart-container" onClick={()=>navigate("/carrito")}>
 						<span className="favorites-counter">{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
 						<BsCartFill className="cart-icon mt-2" size={22} />
@@ -117,8 +133,8 @@ export const Navbar = () => {
 							placeholder="Buscar"
 							aria-label="Search"
 							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-						/>
+							onChange={handleSearchOnChange} 
+							/>
 						<button className="btn btn-outline-success" type="submit">
 							Buscar
 						</button>
@@ -126,20 +142,10 @@ export const Navbar = () => {
 			
 				</div>
 				{searchResults.length > 0 && (
-        <div className="d-flex bg-danger">
-          {searchResults.map((result, index) => {
-				return (
-					<div id="mostrarBusqueda" className="d-flex flex-column">
-						<li key={index}>
-							<a className="dropdown-item" href="#">
-								{result.name}
-							</a>
-						</li>
+					<div className="d-flex flex-column">
+						{mostrarBusqueda()}
 					</div>
-				);
-				})}
-        </div>
-      )}
+     			 )}
 			</div>
 		</nav>
 	);
