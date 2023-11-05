@@ -80,7 +80,6 @@
     .segundaImagen{
         width: auto;
         height: 100px;
-        margin-top: 45px;
         z-index: 200;
     }
     .terceraImagen{
@@ -94,7 +93,7 @@
         width: auto;
         height: 160px;
         z-index: 200;
-        transform: translate(20%, -150%);
+        transform: translate(0%, -150%);
     }
 
 }
