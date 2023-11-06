@@ -35,16 +35,14 @@ a{
     height: 50px;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 360px;
     border: 1px solid black;
     border-radius: 5px;
 }
 
 #loginCard{
     border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
 }
 #loginSubmit{
     margin-left: 220px;
@@ -55,12 +53,22 @@ a{
 .general-container{
     height:700px;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
 
 @media (max-width: 470px){
-
+.general-container{
+    height:900px !important;
+}
+.half-content {
+    height: 350px !important;
+}
+#loginCard{
+    width: 100% !important;
+    margin-top: 20px;
+    border: none !important;
+}
 
 }

@@ -94,7 +94,7 @@ const Login = () =>{
                             {showLogin ? (
                                 <>
                                 <div class="col-md-12 d-flex justify-content-center align-items-center flex-column" id="login">
-                                <h3 className="mb-5">Ecommerce App</h3>
+                                <h3 className="mb-5">Arte del Interior</h3>
                                 <div className="input-board">
                                     <i class="fa-solid fa-user me-3"></i>
                                     <input
@@ -120,7 +120,7 @@ const Login = () =>{
                                         /><br/><br/>
                                 </div>
                                 <button type="submit" 
-                                        className="btn btn-warning mt-4"
+                                        className="btn btn-warning mt-4 col-md-7"
                                         onClick={()=>{
                                             actions.userLogin(loginEmail,loginPassword)
                                             navigate("/")
