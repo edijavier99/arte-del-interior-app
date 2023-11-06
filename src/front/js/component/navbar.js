@@ -109,7 +109,6 @@ export const Navbar = () => {
 							<a className="nav-link" href="/" onClick={logOut}>Salir</a>
 						</li>
 						<a className="nav-item" onClick={()=> navigate("/userpage")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
-
 						</>
 
 					):(
@@ -117,10 +116,10 @@ export const Navbar = () => {
 						<li className="nav-item">
 							<a className="nav-link" href="/login">Login</a>
 						</li>
+						<a className="nav-item" onClick={()=> navigate("/login")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
 						</>
 					)}
 					
-					<a className="nav-item" onClick={()=> navigate("/login")}><BsFillPersonFill className="mt-1 mx-3 cuenta" size={25} /></a>
 					<div className="shopping-cart-container" onClick={()=>navigate("/carrito")}>
 						<span className="favorites-counter">{(store.carrito && store.carrito!=null && store.carrito!=undefined)? store.carrito.length:"0"}</span>
 						<BsCartFill className="cart-icon mt-2" size={22} />

@@ -27,10 +27,10 @@ export const Footer = () => (
 			<div className="col-md-3">
 				<h3>Conectate</h3>
 				<div className="d-flex flex-row justify-content-around col-md-11 mt-3">
-					<i class="fa-brands fa-facebook-f fa-2x mx-0"></i>
-					<i class="fa-brands fa-instagram fa-2x"></i>
-					<i class="fa-brands fa-twitter fa-2x"></i>
-					<i class="fa-brands fa-whatsapp fa-2x"></i>
+					<i class="fa-brands iconoFooter fa-facebook-f fa-2x mx-0"></i>
+					<i class="fa-brands iconoFooter fa-instagram fa-2x"></i>
+					<i class="fa-brands iconoFooter fa-twitter fa-2x"></i>
+					<i class="fa-brands iconoFooter fa-whatsapp fa-2x"></i>
 				</div>
 			</div>
 			<hr className="mt-5"/>

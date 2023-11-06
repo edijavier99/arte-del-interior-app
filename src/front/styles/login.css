@@ -42,6 +42,9 @@ a{
 
 #loginCard{
     border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #loginSubmit{
     margin-left: 220px;
@@ -59,8 +62,5 @@ a{
 
 @media (max-width: 470px){
 
-.general-container{
-    max-width:100%;
-}
 
 }

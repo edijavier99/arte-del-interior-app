@@ -16,8 +16,9 @@
 #footerBoard a{
     color: black;
 }
-.fa-brands{
-    color: black ;
+
+.iconoFooter{
+    color: black !important ;
 }
 @media (max-width: 470px){
     .footer{

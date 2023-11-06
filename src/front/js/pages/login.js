@@ -132,6 +132,7 @@ const Login = () =>{
                                < a href="#" className="btn bg-light mt-3" onClick={()=>{
                                 signInWithGoogle()
                                 .then(res=>{
+                                    window.location.reload()
                                     setInfoGoogle(res)
                                     const { localId, firstName, email,lastName,photoUrl } = res._tokenResponse;
                                     const dataToStore = {
@@ -142,7 +143,6 @@ const Login = () =>{
                                       image: photoUrl
                                     };
                                     localStorage.setItem('userData', JSON.stringify(dataToStore));
-                                    console.log(res);
                                     actions.createUser(res._tokenResponse.displayName,contraseñaParaFirebase,res._tokenResponse.fullName,res._tokenResponse.email,locationn, res._tokenResponse.photoUrl)
                                 })
                                }}> 
