@@ -73,7 +73,7 @@ const Login = () =>{
     };
         
     return(
-            <div className="general-container">
+            <div className="general-container mb-4">
                 <div className="row border col-8" id="loginCard">
                     <div className={showLogin ? "col-md-4 p-0" : "col-md-4 p-0"}>
                         {showLogin ? (
