@@ -37,7 +37,8 @@
     color: #ffffff;
 }
 
-.progress-bar::before {
+
+/* .progress-bar::before {
     content: '';
     background-color: lightgray;
     height: 5px;
@@ -46,4 +47,25 @@
     top: 25px;
     left: 15px;
     z-index: -1;
+} */
+
+@media (max-width:470px){
+    #carritoDashboard{
+        display: flex;
+        flex-direction: column !important;
+        margin-bottom: 50px;
+    }
+    #resumenPedido{
+        display: flex;
+        flex-direction: column !important;
+        margin-top: 0px;
+    }
+    #listaProductos{
+        margin: 0px;
+        margin-right: 0px !important;
+    }
+    .tituloResumenPedido{
+        margin-top: 20px;
+    }
+
 }

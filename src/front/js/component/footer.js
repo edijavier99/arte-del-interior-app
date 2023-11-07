@@ -3,7 +3,7 @@ import "../../styles/footer.css"
 
 export const Footer = () => (
 	<footer className="footer bg-light p-0 m-0 mt-5">
-		<div className="row col-md-12 m-0 p-0" id="footerBoard">
+		<div className="row col-md-12 p-3" id="footerBoard">
 			<div className="col-md-3">
 				<h3>Links </h3>
 				<div className="d-flex flex-column">
@@ -37,7 +37,7 @@ export const Footer = () => (
 			<div className="d-flex flex-row justify-content-between mt-1">
 				<div class="footer-links mt-1" >
 					<ul className="d-flex flex-row px-0">
-						<li><a href="/">© 2023, Exchange App</a></li>
+						<li><a href="/">© 2023, Arte del Interior</a></li>
 							<p className="mx-3">|</p>
 						<li><a target="_blank" rel="nofollow" href="#">Powered by Edi Javier</a></li>
 					</ul>

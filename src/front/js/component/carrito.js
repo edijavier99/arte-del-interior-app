@@ -3,8 +3,7 @@ import "../../styles/carrito.css"
 
 const Carrito = ({ item }) => {
   return (
-    <div className="carrito bg-light">
-            <div className='d-flex flex-row mb-3 p-4'> 
+            <div className='d-flex bg-light flex-row mb-3 p-4'> 
               <div className='carritoImage'>
                 <img src={item.image} alt="imagen producto" />
               </div>
@@ -13,7 +12,6 @@ const Carrito = ({ item }) => {
                 <p>{item.price} €</p>
               </div>
             </div>
-    </div>
   );
 };
 

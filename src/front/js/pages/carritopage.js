@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import Carrito from "../component/carrito";
 import "../../styles/carritopage.css"
+import { useNavigate } from "react-router-dom";
 
 
 const CarritoPage = () =>{
     const {store,actions} = useContext(Context)
     const items = store.carrito
+    const navigate = useNavigate()
 
     const showCarrrito = () =>{
       return items.map((item,index)=>{
@@ -22,8 +24,7 @@ const CarritoPage = () =>{
                             {/* <p className="me-5">x1</p> */}
                             <p>{item.price} €</p>
                         </section>
-                 
-            </div>
+                    </div>
         })
     }
 
@@ -34,7 +35,7 @@ const CarritoPage = () =>{
 
     return(
         <>
-                  <div className="col-md-8">
+                  {/* <div className="col-md-8">
             <ul class="progress-bar d-flex flex-row  justify-content-between ">
         <li class="step">
             <div class="circle activo">1</div>
@@ -49,10 +50,9 @@ const CarritoPage = () =>{
             <div>Pago</div>
         </li>
     </ul>
-            </div>
-        <div className="container-fluid d-flex flex-row col-md-11">
-  
-            <section className="col-md-8 me-4">
+            </div> */}
+        <div className="container-fluid d-flex flex-row col-md-11 mt-3" id="carritoDashboard">
+            <section className="col-md-8 me-4" id="listaProductos">
                 <h3>CESTA {store.carrito.length} PRODUCTOS</h3>
                 <p>Envío gratis disponible</p>
                 <div>
@@ -62,7 +62,7 @@ const CarritoPage = () =>{
 
             <section className='col-md-4'>
                 <div>
-                    <h3>RESUMEN DEL <strong>PEDIDO</strong></h3>
+                    <h3 className="tituloResumenPedido">RESUMEN DEL <strong>PEDIDO</strong></h3>
                 </div>
                 <div className="bg-light" id="resumenPedido">
                     {showEachPedido()}
@@ -84,6 +84,9 @@ const CarritoPage = () =>{
                             términos y condiciones. <a href="#">Para más información</a>
                     </span>
                     <button className="btn btn-primary mt-3 col-md-12">CONTINUAR</button>
+                    <button className="btn btn-primary mt-3 col-md-12" onClick={()=>{
+                        navigate("/canapes")
+                    }}>Seguir comprando</button>
                 </div>
             </section>
         </div>
