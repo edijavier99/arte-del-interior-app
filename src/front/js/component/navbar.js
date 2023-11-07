@@ -86,6 +86,7 @@ export const Navbar = () => {
 	}
 
 	return (
+		<div className="m-0 p-0">
 		<nav className={`navbar navbar-expand-lg ${isHome ? 'navbar' : 'otherNav'}`} >
 			<div className="container-fluid  mt-0" id="navbarHome">
 				<a className="navbar-brand" href="#">Navbar</a>
@@ -140,12 +141,14 @@ export const Navbar = () => {
 					</form>
 			
 				</div>
-				{searchResults.length > 0 && (
-					<div className="d-flex flex-column">
-						{mostrarBusqueda()}
-					</div>
-     			 )}
+				
 			</div>
 		</nav>
+		{searchResults.length > 0 && (
+			<div className="d-flex flex-column mb-4 resultadoBusqueda">
+				{mostrarBusqueda()}
+			</div>
+		  )}
+		  </div>
 	);
 };

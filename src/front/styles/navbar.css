@@ -22,12 +22,16 @@
     position: relative;
     display: inline-block;
 }  
-.busquedaBoard{
-  
+.resultadoBusqueda{
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .itemBusqueda{
   font-size: 17px !important;
+}
+.itemBusqueda:hover{
+  background-color: transparent;
 }
 
   @media (max-width: 470px){

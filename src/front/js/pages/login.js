@@ -77,19 +77,24 @@ const Login = () =>{
                 <div className="row border col-8" id="loginCard">
                     <div className={showLogin ? "col-md-4 p-0" : "col-md-4 p-0"}>
                         {showLogin ? (
-                            <div className="half-content d-flex text-center  justify-content-center flex-column">
-                                <h3>BIENVENIDO!</h3>
-                                <p>Descubre el confort perfecto. Encuentra tu próximo mueble con nosotros</p>
+                            <div className="half-content mitadLogin d-flex text-center  align-items-center justify-content-center ">
+                                <div className="p-4 slogan">
+                                    <h3>BIENVENIDO!</h3>
+                                    <p>Descubre el confort perfecto. Encuentra tu próximo mueble con nosotros</p>
+                                </div>
+                                
                             </div>
                         ) : (
-                            <div className="half-content d-flex text-center  justify-content-center flex-column">
-                                <h1>Da vida a tu espacio</h1>
-                                <p>Crea una cuenta y comienza a <br/>diseñar tu hogar perfecto hoy mismo</p>                                
+                            <div className="half-content mitadCreateAccount d-flex text-center  align-items-center justify-content-center ">
+                                <div className="p-4 slogan">
+                                    <h1>Da vida a tu espacio</h1>
+                                    <p>Crea una cuenta y comienza a <br/>diseñar tu hogar perfecto hoy mismo</p>                                
+                                </div>
                             </div>
                         )}
                     </div>
                 <div className={showLogin ? "col-md-8" : "col-md-8 order-md-1"}>
-                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <div className="d-flex flex-column  justify-content-center align-items-center">
                         <div className="row g-0 d-flex justify-content-center align-items-center mt-4">
                             {showLogin ? (
                                 <>
