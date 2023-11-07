@@ -26,7 +26,7 @@ const CanapesCard = (props) =>{
                       <p>{props.canape.profundidad}</p>
                     </div>
                   </div>
-                  <button className="btn btn-dark col-md-12 rounded-0" onClick={()=>navigate(`${props.single}`)}>VER</button>
+                  <button className="btn btn-dark col-md-12 verMasBtn rounded-0" onClick={()=>navigate(`${props.single}`)}>VER</button>
                 </div>
             </div>
     )

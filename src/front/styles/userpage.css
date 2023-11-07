@@ -1,26 +1,71 @@
+
 #user-wallpaper{
     width: 100%;
     height: 350px;
+
 }
-#user-wallpaper img, #user-image img{
+#user-wallpaper img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+    object-position: center 75%; 
+    filter: brightness(75%);
 }
-#user-image{
-    margin-left: 100px;
-    width: 220px;
-    height: 220px;
+#dashboard{
+    transform: translateY(-7%);
 }
-#user-image img{
-    border-radius: 60%;
-    transform: translateY(-35%);
+#userProfile{
+    z-index: 100;
+    border: 1px solid rgb(197, 194, 194);
+    background-color: white;
+
 }
-#userInfo {
-    margin-top: 20px;
-    margin-left: 40px;
+#userImage{
+    width: 100%;
+    height: 320px;
+    border-bottom: 1px solid rgb(218, 211, 211);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
-#collapseBtns{
-    border-radius: 5px;
+#userImage img{
+   width: 180px;
+   height: 180px;
+   border-radius: 50%;
+}
+.featuresUser{
+    height: 60px;
+    border-bottom: 1px solid rgb(218, 211, 211);
+    padding: 18px;
+}
+#userItems{
+    border: 1px solid rgb(218, 211, 211);
+    background-color: white;
+}
+
+@media (max-width: 470px){
+    #dashboard{
+        display: flex;
+        flex-direction: column !important;
+    }
+    #collapseBtns{
+        display: flex;
+        flex-direction: row !important;
+    }
+    .btnItem{
+        width: 90px;
+        font-size: 14px;
+    }
+    #userItems{
+        margin-top: 45px;
+        border:none
+    }
+    #userProfile{
+        border:none
+
+    }
 }

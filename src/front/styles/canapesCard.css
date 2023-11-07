@@ -25,4 +25,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+
+}
+@media (max-width: 470px){
+.verMasBtn{
+    width: 100%;
+}
 }
