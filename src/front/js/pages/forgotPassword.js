@@ -24,7 +24,7 @@ const ForgotPassword = () =>{
                                onChange={(e)=>{setEmail(e.target.value)}}
                         />
                         <button className="btn btn-warning"
-                                onClick={resetPasswordEmail(email)}
+                                onClick={()=>{resetPasswordEmail(email)}}
                         >Submit</button>
                         <TextDivider/>
                         <div className="text-center">
