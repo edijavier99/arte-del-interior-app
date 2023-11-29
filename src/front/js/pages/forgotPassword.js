@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import TextDivider from "../component/textdivider";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../../utils/init-firebase";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () =>{
     const [email,setEmail] = useState("")
+    const navigate = useNavigate("")
 
     const resetPasswordEmail = (email) =>{
-        return sendPasswordResetEmail(auth,email, {url: "https://redesigned-palm-tree-66j994vvjv9hrxxw-3000.app.github.dev/login"})
+        return sendPasswordResetEmail(auth,email, {url: "https://sample-service-name-vllh.onrender.com/login"})
     }
 
     return(
@@ -24,7 +26,10 @@ const ForgotPassword = () =>{
                                onChange={(e)=>{setEmail(e.target.value)}}
                         />
                         <button className="btn btn-warning"
-                                onClick={()=>{resetPasswordEmail(email)}}
+                                onClick={()=>{
+                                    resetPasswordEmail(email)
+                                    navigate("/")
+                                }}
                         >Submit</button>
                         <TextDivider/>
                         <div className="text-center">

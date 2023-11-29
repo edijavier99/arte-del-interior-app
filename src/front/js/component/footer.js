@@ -3,7 +3,7 @@ import "../../styles/footer.css"
 
 export const Footer = () => (
 	<footer className="footer bg-light p-0 m-0 mt-5">
-		<div className="row col-md-12 p-3" id="footerBoard">
+		<div className="row col-md-12 p-3 m-0" id="footerBoard">
 			<div className="col-md-3">
 				<h3>Links </h3>
 				<div className="d-flex flex-column">
@@ -12,6 +12,7 @@ export const Footer = () => (
 					<a href="#">Refund Policy</a>
 					<a href="#">Contact Us</a>
 				</div>
+
 
 			</div>
 			<div className="col-md-3">

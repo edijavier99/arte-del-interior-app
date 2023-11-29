@@ -187,3 +187,8 @@ def handle_search():
     serialized_results = [{'id': item.id, 'name': item.title} for item in results]
 
     return jsonify({'results': serialized_results})
+
+@api.route('/update-password', methods=["GET"])
+def update_password():
+    password = request.get_json()
+    

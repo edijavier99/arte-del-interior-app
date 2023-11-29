@@ -19,6 +19,8 @@ import Cabeceros from "./pages/cabeceros";
 import CarritoPage from "./pages/carritopage";
 import Mesas from "./pages/mesas";
 import Armarios from "./pages/armarios";
+import ResetPassword from "./pages/resetpassword";
+import AboutUs from "./pages/aboutus";
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -35,8 +37,10 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<Userpage />} path="/userpage" />
+                        <Route element={<Userpage />} path="/userpage"/>
+                        <Route element={<AboutUs />} path="/about-us"/>
                         <Route element={<Login />} path="/login" />
+                        <Route element={<ResetPassword/>} path="/reset-password"/>
                         {/* <Route element={<NewItem />} path="/new-item" /> */}
                         <Route element={<ForgotPassword />} path="/forgot-password" />
                         <Route element={<Cabeceros />} path="/cabeceros" />

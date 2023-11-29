@@ -51,6 +51,7 @@
     height: 40px;
     width: 120px;
     margin-top: 70px;
+    color: black !important;
 }
 @media (max-width: 470px){
     .carousel-caption {

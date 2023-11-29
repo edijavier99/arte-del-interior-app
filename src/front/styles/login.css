@@ -16,7 +16,6 @@
 .mitadLogin{
     background-image: url("https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     background-size: cover;
-    filter:brightness(80%);
 
 }
 .mitadCreateAccount{
@@ -24,13 +23,12 @@
     background-size: cover;
     background-position-x:35%;
     background-repeat: none;
-    filter:brightness(80%);
 }
 .slogan{
     width: 250px;
-    background-color: rgba(255, 255, 255, 0.689);
-    filter: brightness(100%) !important;
+    background-color: rgba(77, 77, 77, 0.656); /* Añadir para conseguir el fondo con opacidad */
     height: 250px;
+    color: white;
 }   
 input{
     height: 40px;

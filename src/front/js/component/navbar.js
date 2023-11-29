@@ -1,5 +1,4 @@
 import React, { useContext, useEffect,useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../styles/navbar.css";
 import {GiHamburgerMenu } from 'react-icons/gi';
@@ -104,6 +103,9 @@ export const Navbar = () => {
 				
 					<Dropdown name ={"Dormitorio"} item1="Canapes"  link="/canapes" link2="/colchones" link3="/cabeceros" item2="Colchones" item3="Cabezeros" />
 					<Dropdown name ={"Salon"} item1="Sofa" item2="Armario" item3="Mesas"  link="/sofas" link2="/armarios" link3="/mesas" />
+					<li className="nav-item">
+						<a className="nav-link " aria-current="page" onClick={()=> navigate("/about-us")} >Sobre Nosotros</a>
+					</li>
 					{tokenn || (userData && userData.token) ? (
 						<>
 						<li className="nav-item">

@@ -157,10 +157,10 @@ const Login = () =>{
                                <img src={google} style={{height:40, width:40}} alt="google-image"/>Log in with Google</a>
 
                                 <div className="d-flex flex-row mt-3">
-                                    <a href="/forgot-password" className="me-5 text-muted"><small>Forgot password?</small></a>
+                                    <a href="/forgot-password" className="me-5 text-muted"><small>Contraseña olvidada?</small></a>
                                     <a onClick={()=>{
                                         handleCreateClick()
-                                    }} id="createAcount" className="me-5 text-muted"><small>Create Account</small></a>
+                                    }} id="createAcount" className="me-5 text-muted"><small>Crear cuenta</small></a>
                                 </div>
                                 <br/>
                             </div>
@@ -170,8 +170,8 @@ const Login = () =>{
                                 <>
                                 <div class="row g-0 d-flex justify-content-center align-items-center">
                                     <div class="col-md-10 d-flex justify-content-center align-items-center flex-column ">
-                                        <h1 className="mb-3">CREATE ACCOUNT</h1>
-                                        <p className="text-center">Create an account to join our comunity and give second opportunities to your items</p>
+                                        <h1 className="mb-3">CREAR CUENTA </h1>
+                                        <p className="text-center">crea una cuenta y renueva tu hogar!</p>
                                         <div className="input-board mt-3">
                                             <i class="fa-solid fa-user me-3"></i>
                                             <input 
@@ -248,7 +248,7 @@ const Login = () =>{
                                                         handleLoginClick()
                                                     }  
                                                 }}
-                                                >SUBMIT</button> 
+                                                >ENTRAR</button> 
                                             <i class="fa-solid fa-arrow-right" onClick={handleLoginClick}></i>
                                         </div>
                                     </div>
