@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 #loginCard{
     height: 600px;
     display: flex;
@@ -30,12 +31,6 @@
     height: 250px;
     color: white;
 }   
-input{
-    height: 40px;
-    width: 220px;
-    border: none;
-    border-left: 1px solid black;
-}
 a{
     text-decoration: none;
 }
@@ -53,6 +48,11 @@ a{
     width: 360px;
     border: 1px solid black;
     border-radius: 5px;
+}
+.input-board input{
+    height: 40px;
+    border: none;
+    border-left: 1px solid black;
 }
 
 #loginCard{
