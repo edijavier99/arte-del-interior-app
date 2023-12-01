@@ -48,10 +48,13 @@ class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
     category = db.Column(Enum(myEnum))
+    shortDescription = db.Column(db.String(400),nullable=True)
     description = db.Column(db.String(1000), nullable=False)
     location = db.Column(db.String(250), nullable=True)
     publishing_date = db.Column(db.String(10), nullable=False)
-    image = db.Column(db.String(2000),nullable=True) 
+    image = db.Column(db.String(2000),nullable=True)
+    image1 = db.Column(db.String(2000),nullable=True)
+    image2 = db.Column(db.String(2000),nullable=True)
     counter = db.Column(db.Integer, nullable=True, default=0)
     price = db.Column(db.Integer, nullable=True, default=0)
     profundidad = db.Column(db.Integer, nullable=True, default=0)
@@ -72,11 +75,14 @@ class Item(db.Model):
             "id": self.id,
             "title": self.title,
             "category": self.category.value if self.category else None,
+            "shortDescription": self.shortDescription,
             "description": self.description,
             "location":self.location,
             "publishing_date": self.publishing_date,
             "price": self.price,
             "image": self.image,
+            "image1": self.image1,
+            "image2": self.image2,
             "counter": self.counter,
             "profundidad": self.profundidad,
             "capacidad": self.capacidad,

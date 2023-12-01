@@ -19,7 +19,7 @@ const AboutUs = ()=>{
                         </div>
                     </div>
                     <div id="aboutUsImage">
-                        <img src="https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_1280.jpg" alt="imagen-equipo"/>
+                        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="imagen-equipo"/>
                     </div>
                 </header>
                 <main>
@@ -28,7 +28,7 @@ const AboutUs = ()=>{
                           <h1><i class="fas fa-quote-left"></i> Refleja tu esencia, <br/> transforma tu espacio: <br/> Muebles que capturan <br/> tu estilo, eco y único. <i class="fas fa-quote-right"></i></h1>
                         </div>
                         <div className="col-md-6 m-0 p-0" id="aboutUsImageDos">
-                            <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/whiteboard-849813_1280.jpg" alt="imagen-organizacion"/>
+                            <img src="https://cdn.pixabay.com/photo/2016/11/29/08/43/blank-1868502_1280.jpg" alt="imagen-organizacion"/>
                         </div>
                     </div>
                 </main>

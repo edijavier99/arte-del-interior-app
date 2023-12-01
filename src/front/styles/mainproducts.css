@@ -15,7 +15,8 @@
     width: 100%;
 }
 #carrito{
-    background-color: rgb(240, 236, 227) ;
+    background-color: black ;
+    color:white
 }
 .progress-bar {
     width: 100%;
@@ -54,4 +55,14 @@ select:focus {
 }
 .btnCantidad{
     height: 25px;
+}
+#descriptionProducto{
+    height: auto;
+    margin-top:70px
+}
+.btnDescription{
+    width: 250px;
+}
+.cantidadAndPrecio{
+    height: 120px;
 }

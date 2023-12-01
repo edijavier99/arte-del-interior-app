@@ -9,7 +9,7 @@ import Login from "./pages/login";
 // import NewItem from "./pages/newitem"
 import SingleItem from "./pages/singleitem"
 import Userpage from "./pages/userpage"
-import ForgotPassword from "./pages/forgotPassword";
+import VerifyEmail from "./pages/verifyemail";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import TopBar from "./component/topbar";
@@ -19,8 +19,9 @@ import Cabeceros from "./pages/cabeceros";
 import CarritoPage from "./pages/carritopage";
 import Mesas from "./pages/mesas";
 import Armarios from "./pages/armarios";
-import ResetPassword from "./pages/resetpassword";
+import ResetPassword from "./pages/resetpasword";
 import AboutUs from "./pages/aboutus";
+
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -40,9 +41,10 @@ const Layout = () => {
                         <Route element={<Userpage />} path="/userpage"/>
                         <Route element={<AboutUs />} path="/about-us"/>
                         <Route element={<Login />} path="/login" />
+                        <Route element={<VerifyEmail/>} path="/verify-email"/>
                         <Route element={<ResetPassword/>} path="/reset-password"/>
+
                         {/* <Route element={<NewItem />} path="/new-item" /> */}
-                        <Route element={<ForgotPassword />} path="/forgot-password" />
                         <Route element={<Cabeceros />} path="/cabeceros" />
                         <Route element={<Canapes />} path="/canapes" />
                         <Route element={<Colchones />} path="/colchones" />

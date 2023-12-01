@@ -157,7 +157,7 @@ const Login = () =>{
                                <img src={google} style={{height:40, width:40}} alt="google-image"/>Log in with Google</a>
 
                                 <div className="d-flex flex-row mt-3">
-                                    <a href="/forgot-password" className="me-5 text-muted"><small>Contraseña olvidada?</small></a>
+                                    <a href="/reset-password" className="me-5 text-muted"><small>Contraseña olvidada?</small></a>
                                     <a onClick={()=>{
                                         handleCreateClick()
                                     }} id="createAcount" className="me-5 text-muted"><small>Crear cuenta</small></a>

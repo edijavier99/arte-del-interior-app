@@ -94,7 +94,7 @@ def upload_item():
         }
         return jsonify(response_body),400
     
-    required_fields = ["title", "description", "publishing_date", "image", "category", "price","color"]
+    required_fields = ["title", "description","shortDescription", "publishing_date", "image", "category", "price","color"]
     for field in required_fields:
         if field not in data:
             response_body = {
@@ -102,7 +102,7 @@ def upload_item():
             }
             return jsonify(response_body), 400
         
-    new_item= Item(title = data["title"], description=data["description"], price=data["price"], category=data["category"], color=data["color"], publishing_date=data["publishing_date"], image=data["image"], altura=data["altura"], profundidad=data["profundidad"],longitud=data["longitud"],codigo=data["codigo"])
+    new_item= Item(title = data["title"], description=data["description"],shortDescription=data["shortDescription"],price=data["price"], category=data["category"], color=data["color"], publishing_date=data["publishing_date"], image=data["image"], altura=data["altura"], profundidad=data["profundidad"],longitud=data["longitud"],codigo=data["codigo"])
     db.session.add(new_item)   
     db.session.commit()
     return jsonify({"msg": "Item has been added"}),200
@@ -188,7 +188,7 @@ def handle_search():
 
     return jsonify({'results': serialized_results})
 
-@api.route('/update-password', methods=["GET"])
+@api.route('/update-password', methods=["PUT"])
 def update_password():
     password = request.get_json()
     
