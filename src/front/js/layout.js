@@ -21,6 +21,7 @@ import Mesas from "./pages/mesas";
 import Armarios from "./pages/armarios";
 import ResetPassword from "./pages/resetpasword";
 import AboutUs from "./pages/aboutus";
+import PaymentView from "./pages/paymentpage";
 
 //create your first component
 const Layout = () => {
@@ -43,6 +44,7 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<VerifyEmail/>} path="/verify-email"/>
                         <Route element={<ResetPassword/>} path="/reset-password"/>
+                        <Route element={<PaymentView/>} path="/payment"/>
 
                         {/* <Route element={<NewItem />} path="/new-item" /> */}
                         <Route element={<Cabeceros />} path="/cabeceros" />

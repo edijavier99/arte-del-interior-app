@@ -83,7 +83,9 @@ const CarritoPage = () =>{
                             Le recomiendo que se ponga en contacto con nuestro equipo de servicio al cliente si necesita más información o tiene alguna pregunta adicional sobre nuestros
                             términos y condiciones. <a href="#">Para más información</a>
                     </span>
-                    <button className="btn btn-primary mt-3 col-md-12">CONTINUAR</button>
+                    <button className="btn btn-primary mt-3 col-md-12" onClick={()=>{
+                        navigate("/payment")
+                    }}>CONTINUAR</button>
                     <button className="btn btn-primary mt-3 col-md-12" onClick={()=>{
                         navigate("/canapes")
                     }}>Seguir comprando</button>
