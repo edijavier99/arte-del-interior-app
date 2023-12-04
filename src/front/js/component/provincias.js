@@ -3,7 +3,7 @@ import React from "react";
 const Provincias = () =>{
     return(
         <>
-        <select class="form-select" className="mb-3" aria-label="Selecciona una provincia">
+        <select class="form-select" className="mb-3" style={{height:40,paddingLeft:10}} aria-label="Selecciona una provincia">
             <option selected disabled>Elige una provincia</option>
             <option value="alava">Álava</option>
             <option value="albacete">Albacete</option>

@@ -21,8 +21,6 @@ export const Navbar = () => {
 	const isHome = window.location.pathname === '/';
 	const userData = JSON.parse(localStorage.getItem('userData'));
 
-
-
 	const handleSearch = (e) => {
 	  e.preventDefault();
 	};

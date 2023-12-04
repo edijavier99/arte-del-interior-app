@@ -9,30 +9,6 @@ const CarritoPage = () =>{
     const {store,actions} = useContext(Context)
     const items = store.carrito
     const navigate = useNavigate()
-
-    const showCarrrito = () =>{
-      return items.map((item,index)=>{
-            return <Carrito key={index} item={item} />
-      })
-    }
-
-    const showEachPedido = () =>{
-        return items.map((item,index)=>{
-            return <div className="d-flex flex-row justify-content-between">
-                    <p>{item.title}</p>
-                        <section className="d-flex flex-row">
-                            {/* <p className="me-5">x1</p> */}
-                            <p>{item.price} €</p>
-                        </section>
-                    </div>
-        })
-    }
-
-    const sumarTotalPrecio = () =>{
-        const Total = items.reduce((total, item) => total + item.price, 0);
-        return Total;
-    }
-
     return(
         <>
                   {/* <div className="col-md-8">
@@ -56,7 +32,7 @@ const CarritoPage = () =>{
                 <h3>CESTA {store.carrito.length} PRODUCTOS</h3>
                 <p>Envío gratis disponible</p>
                 <div>
-                    {showCarrrito()}
+                    {actions.showCarrrito(items)}
                 </div>
             </section>
 
@@ -65,7 +41,7 @@ const CarritoPage = () =>{
                     <h3 className="tituloResumenPedido">RESUMEN DEL <strong>PEDIDO</strong></h3>
                 </div>
                 <div className="bg-light" id="resumenPedido">
-                    {showEachPedido()}
+                    {actions.showEachPedido(items)}
                     <hr/>
                     <div className="d-flex flex-row justify-content-between">
                         <p>Gastos de envio</p>
@@ -74,7 +50,7 @@ const CarritoPage = () =>{
                     <hr/>
                     <div className="d-flex flex-row justify-content-between">
                         <p><strong>Total</strong></p>
-                        <p> <strong>{sumarTotalPrecio()} €</strong></p>
+                        <p> <strong>{actions.sumarTotalPrecio(items)} €</strong></p>
                     </div>
                     <span id="infoPago">Tiene derecho a cancelar su pedido dentro de un período de 14 días a partir de la recepción de los muebles.
                             Para ejercer este derecho, debe notificarnos su decisión por escrito a través del correo electrónico para los pedidos de productos digitales.

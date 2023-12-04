@@ -112,9 +112,10 @@ def upload_item():
 def get_stripe_details():
     stripe.api_key = os.environ.get("STRIPE_API_KEY")
 
+
     try:
         data = request.get_json()
-        amount = data["amount"]*100
+        amount = data["totalACobrar"]*100
 
         charge = stripe.Charge.create(
             amount=amount,

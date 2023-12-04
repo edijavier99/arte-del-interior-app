@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import Carrito from "../component/carrito";
 import Swal from "sweetalert2";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -144,8 +147,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(err);
 					});
 				};
+			},
+			showEachPedido: (items) =>{
+				return items.map((item,index)=>{
+					return <div key={index} className="d-flex flex-row justify-content-between">
+							<p>{item.title}</p>
+								<section className="d-flex flex-row">
+									{/* <p className="me-5">x1</p> */}
+									<p>{item.price} €</p>
+								</section>
+							</div>
+				})
+			},
+			showCarrrito: (items) =>{
+				return items.map((item,index)=>{
+					  return <Carrito key={index} item={item} />
+				})
+			  },
+			sumarTotalPrecio: (items) =>{
+				const Total = items.reduce((total, item) => total + item.price, 0);
+				return Total;
 			}
-
 		}
 
 	};

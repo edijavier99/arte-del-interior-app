@@ -2,9 +2,8 @@ import React from "react";
 import {Elements, CardElement,useStripe, useElements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-const StripePayment = () =>{
+const StripePayment = ({ totalACobrar }) =>{
     const stripePromise = loadStripe('pk_test_51NvPj0GmhMwvqVPthRRewXoaKBfZlIqEM2cma9Ag6NlrgXm2dQ6Zvdrg7Wj8BhdOuvrVCWyGsqSJ6TnVJMhvTJDY002JjXnEzr');
-    const amount = 1120 
 
     const CheckoutForm = ()=>{ 
 	const stripe = useStripe()
@@ -25,7 +24,7 @@ const StripePayment = () =>{
 					headers: { 
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ id, amount}) 
+					body: JSON.stringify({ id, totalACobrar}) 
 				})
 				.then((res) => res.json())
 				.then((result) => { 
